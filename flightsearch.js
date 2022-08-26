@@ -1,29 +1,52 @@
 // flight search 
 
 const flightfrom = document.getElementById("flightFrom")
+const flightFromOption = document.getElementById("flightFromOption")
 
-flightfrom.addEventListener("keyup", () => {
-	if(flightfrom.value.length == 3){
+flightfrom.addEventListener("input", () => {
+	if(flightfrom.value.length > 0){
 		
 	const data = JSON.stringify({
 	  "request_type": "GET_AIRPORT_NAME_AUTOCOMPLETE",
 	  "subType": "CITY,AIRPORT",
-	  "keyword": "MUC"
+	  "keyword": flightfrom.value
 	});
 
-	const xhr = new XMLHttpRequest();
-	xhr.withCredentials = true;
+	const options = {
+		method: 'POST',
+		headers: {'Content-Type': 'application/json'},
+		body: data
+	  };
+	  
+	  fetch('http://localhost:3000/flight', options)
+		.then(response => response.json())
+		.then( (response) => {
 
-	xhr.addEventListener("readystatechange", function () {
-	  if (this.readyState === this.DONE) {
-	    console.log(this.responseText);
-	  }
-	});
+			// console.log(flightFromOption);
 
-	xhr.open("GET", "api/flight");
-	xhr.setRequestHeader("Content-Type", "application/json");
+			var len=flightFromOption.options.length;          
+			 if(len > 0) {flightFromOption.remove(0)}
+			
+			response.forEach(function(k){
+			
+			flightFromOption.innerHTML = `<option value="${k.name}">`
 
-	xhr.send(data);
+			// newOption = document.createElement("option");
+			// newOption.value = k.name;  // assumes option string and value are the same
+			// newOption.text = k.name;  // assumes option string and value are the same
+		
+			// try { 
+			// 	flightFromOption.add(newOption);  // this will fail in DOM browsers but is needed for IE
+			// }catch (e) {      
+			// 	flightFromOption.appendChild(newOption);      
+			// } 
+	   
+			})
+
+
+
+			})
+		.catch(err => console.error(err));
 
 
 	}
