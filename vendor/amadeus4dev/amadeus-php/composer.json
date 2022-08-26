@@ -1,0 +1,50 @@
+{
+  "name": "amadeus4dev/amadeus-php",
+  "description": "PHP library for the Amadeus Self-Service APIs",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Amadeus for Developers",
+      "email": "developers@amadeus.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4.0",
+    "ext-json": "*",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Amadeus\\": "src/",
+      "Amadeus\\Airport\\": "src/airport/",
+      "Amadeus\\Airport\\Predictions\\": "src/airport/predictions/",
+      "Amadeus\\Booking\\": "src/booking/",
+      "Amadeus\\Client\\": "src/client/",
+      "Amadeus\\DutyOfCare\\": "src/dutyOfCare/",
+      "Amadeus\\DutyOfCare\\Diseases\\": "src/dutyOfCare/diseases/",
+      "Amadeus\\EReputation\\": "src/eReputation/",
+      "Amadeus\\Exceptions\\": "src/exceptions/",
+      "Amadeus\\ReferenceData\\": "src/referenceData/",
+      "Amadeus\\ReferenceData\\Locations\\": "src/referenceData/locations/",
+      "Amadeus\\ReferenceData\\Locations\\Hotels\\": "src/referenceData/locations/hotels/",
+      "Amadeus\\Resources\\": "src/resources/",
+      "Amadeus\\Schedule\\": "src/schedule/",
+      "Amadeus\\Shopping\\": "src/shopping/",
+      "Amadeus\\Shopping\\Activities\\": "src/shopping/activities/",
+      "Amadeus\\Shopping\\Availability\\": "src/shopping/availability/",
+      "Amadeus\\Shopping\\FlightOffers\\": "src/shopping/flightOffers/",
+      "Amadeus\\Travel\\": "src/travel/",
+      "Amadeus\\Travel\\Predictions\\": "src/travel/predictions/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5.19",
+    "phpstan/phpstan": "^1.5.2",
+    "friendsofphp/php-cs-fixer": "^3.8"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Amadeus\\Tests\\": "tests/"
+    }
+  }
+}

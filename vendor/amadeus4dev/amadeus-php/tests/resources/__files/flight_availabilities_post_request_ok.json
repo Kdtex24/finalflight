@@ -1,0 +1,22 @@
+{
+  "originDestinations": [
+    {
+      "id": "1",
+      "originLocationCode": "BOS",
+      "destinationLocationCode": "MAD",
+      "departureDateTime": {
+        "date": "2021-11-14",
+        "time": "21:15:00"
+      }
+    }
+  ],
+  "travelers": [
+    {
+      "id": "1",
+      "travelerType": "ADULT"
+    }
+  ],
+  "sources": [
+    "GDS"
+  ]
+}
